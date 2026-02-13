@@ -2,7 +2,7 @@
 
 Navi is a serverless, context-aware AI companion for *The Legend of Zelda: Ocarina of Time*. Unlike generic chatbots, this "Navi" is constrained by your current game state, ensuring she never suggests items or locations you can't access yet.
 
-<h3 align="center">**Try it out:** <a href="https://cf-ai-navi-guide.pages.dev">navi-ai</a></h3>
+<h3 align="center">Try it out: <a href="https://cf-ai-navi-guide.pages.dev">navi-ai</a></h3>
 
 ---
 
