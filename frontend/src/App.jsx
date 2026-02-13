@@ -1,6 +1,24 @@
 import { useState, useEffect, useRef } from 'react';
 
-const SESSION_ID = "user-" + Math.random().toString(36).substr(2, 9);
+function generateSessionId() {
+  const cryptoObj = (typeof window !== "undefined" && window.crypto)
+    || (typeof self !== "undefined" && self.crypto);
+
+  if (cryptoObj && cryptoObj.getRandomValues) {
+    const bytes = new Uint32Array(3);
+    cryptoObj.getRandomValues(bytes);
+    const randomStr = Array.from(bytes)
+      .map((n) => n.toString(36))
+      .join('')
+      .substr(0, 9);
+    return "user-" + randomStr;
+  }
+
+  // Fallback: non-cryptographic, only used if crypto is unavailable
+  return "user-" + Math.random().toString(36).substr(2, 9);
+}
+
+const SESSION_ID = generateSessionId();
 const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:8787";
 
 function App() {
