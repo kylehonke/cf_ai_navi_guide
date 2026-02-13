@@ -36,8 +36,9 @@ This project leverages the **Cloudflare Developer Platform** for a low-latency, 
 
 The UI is designed to inform the AI without forcing the user to type every detail.
 
-![UI Screenshot Placeholder 1]
-*(Caption: The Quest Status sidebar allowing quick toggles for Age and Inventory items.)*
+<img width="635" height="528" alt="quest_status_sidebar" src="https://github.com/user-attachments/assets/baebe8e4-59fe-40bf-a73d-0acd96691dcb" />
+
+*The Quest Status sidebar allowing quick toggles for Age and Inventory items.*
 
 ### How UI Elements Inform the AI
 *   **Age Toggles (Child/Adult)**:
@@ -48,8 +49,9 @@ The UI is designed to inform the AI without forcing the user to type every detai
     *   Missing **"Bombs"** tells the AI: "Suggest finding the Bomb Bag before trying to open that wall."
 *   **Chat**: The chat is context-aware. If you say "I'm in the Forest Temple," the AI updates its internal context to focus hints on that specific dungeon.
 
-![UI Screenshot Placeholder 2]
-*(Caption: The Chat Interface where Navi provides vague, helpful nudges.)*
+<img width="1260" height="180" alt="chat_ui" src="https://github.com/user-attachments/assets/099a8202-310d-453f-9822-24b3d167b6ba" />
+
+*The Chat Interface where Navi provides vague, helpful nudges.*
 
 ---
 
