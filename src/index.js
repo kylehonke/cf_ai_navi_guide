@@ -4,7 +4,27 @@ import { GameStateDO } from './GameStateDO';
 
 const app = new Hono();
 
-app.use('/*', cors({ origin: 'https://77a8a0a5.cf-ai-navi-guide.pages.dev' }));
+app.use('/*', cors({
+  origin: (origin) => {
+    // Authorize exact production domain
+    if (origin === 'https://cf-ai-navi-guide.pages.dev') {
+        return origin;
+    }
+    // Authorize preview deployments
+    if (origin && origin.endsWith('.cf-ai-navi-guide.pages.dev')) {
+        return origin;
+    }
+    // Authorize local development envs
+    if (origin && origin.startsWith('http://localhost')) {
+        return origin;
+    }
+    
+    // Default fallback: reject unauthorized origins by returning the strict prod. URL
+    return 'https://cf-ai-navi-guide.pages.dev'; 
+  },
+  allowMethods: ['GET', 'POST', 'OPTIONS'],
+  allowHeaders: ['Content-Type', 'X-Session-ID']
+}));
 
 app.post('/chat', async (c) => {
     try {
@@ -12,7 +32,7 @@ app.post('/chat', async (c) => {
         const userSessionId = sessionId || "default";
 
         // SECURITY NOTE: In a real production app, use signed cookies or tokens for session management.
-        // Client-generated IDs are used here for simplicity in this demo.
+        // Client-generated IDs are used here for simplicity
 
         if (!messages || !Array.isArray(messages)) {
             return c.json({ error: "Invalid messages format" }, 400);
