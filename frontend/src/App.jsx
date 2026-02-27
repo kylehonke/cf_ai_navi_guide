@@ -214,7 +214,7 @@ function App() {
               {loading ? "..." : "ASK"}
             </button>
           </div>
-          <div className="text-right text-xs text-zelda-gold/30 mt-2">v1.10 - NAVI AI</div>
+          <div className="text-right text-xs text-zelda-gold/30 mt-2">NAVI AI | v1.10 | Kyle Honke</div>
         </form>
       </div>
     </div>
